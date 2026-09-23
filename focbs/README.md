@@ -2,6 +2,8 @@
 
 [中文](README_ZH.md)
 
+![Example run](assets/random32.gif)
+
 Requires Linux, a C++17 compiler, Make, and Boost.Program_options development
 files (including the static library). Run commands from this directory.
 
@@ -15,14 +17,15 @@ make
 Run the included example:
 
 ```bash
-./focbs -i tools/example.mapfua -t 60
+./focbs -i tools/example.mapfua --conflict-selection random -t 60
 ```
 
-To regenerate the example, use Python 3 (standard library only):
+To generate another input, use Python 3 (standard library only):
 
 ```bash
 python3 tools/gen_mapfua.py --map tools/random-32-32-20.map \
-  --num-assigned 4 --num-unassigned 20 --seed 0 --output tools/example.mapfua
+  --num-assigned 22 --num-unassigned 756 --seed 0 --output tools/generated.mapfua
+./focbs -i tools/generated.mapfua --conflict-selection random -t 60
 ```
 
 Adjust the counts and seed as needed. To use another input, replace

@@ -2,6 +2,8 @@
 
 [English](README.md)
 
+![运行示例](assets/random32.gif)
+
 需要 Linux、支持 C++17 的编译器、Make 和 Boost.Program_options 开发文件
 （含静态库）。以下命令均在本目录运行。
 
@@ -15,14 +17,15 @@ make
 运行随附示例：
 
 ```bash
-./focbs -i tools/example.mapfua -t 60
+./focbs -i tools/example.mapfua --conflict-selection random -t 60
 ```
 
-重新生成示例需要 Python 3，仅使用标准库：
+生成其他输入需要 Python 3，仅使用标准库：
 
 ```bash
 python3 tools/gen_mapfua.py --map tools/random-32-32-20.map \
-  --num-assigned 4 --num-unassigned 20 --seed 0 --output tools/example.mapfua
+  --num-assigned 22 --num-unassigned 756 --seed 0 --output tools/generated.mapfua
+./focbs -i tools/generated.mapfua --conflict-selection random -t 60
 ```
 
 可按需修改数量和随机种子。使用其他输入时，将 `tools/example.mapfua`
